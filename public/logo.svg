@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" fill="none">
+  <rect x="2" y="2" width="40" height="40" rx="10" fill="#0D111A"/>
+  <rect x="2" y="2" width="40" height="40" rx="10" stroke="#1A2338" stroke-width="1.5"/>
+  <path d="M12 28L20 12L25 22L32 16L26 32L18 26L12 28Z" fill="url(#harpy-logo-grad)" stroke="#38BDF8" stroke-width="1.2" stroke-linejoin="round"/>
+  <circle cx="22" cy="22" r="2.5" fill="#22C55E"/>
+  <text x="52" y="24" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="16" font-weight="700" letter-spacing="-0.3">HARPY</text>
+  <text x="110" y="24" fill="#38BDF8" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="1">GROWTH</text>
+  <text x="52" y="36" fill="#64748B" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.5">INTELLIGENCE</text>
+  <defs>
+    <linearGradient id="harpy-logo-grad" x1="12" y1="12" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="0.6" stop-color="#0284C7"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+  </defs>
+</svg>
+
