@@ -297,10 +297,10 @@ export function Sidebar({
       <aside
         className={cn(
           'hidden lg:flex flex-col shrink-0 transition-all duration-300 z-30',
-          collapsed ? 'w-20' : 'w-64'
+          collapsed ? 'w-20' : 'w-72'
         )}
       >
-        <div className="fixed inset-y-0 left-0 z-30 transition-all duration-300 flex flex-col h-screen" style={{ width: collapsed ? '5rem' : '16rem' }}>
+        <div className="fixed inset-y-0 left-0 z-30 transition-all duration-300 flex flex-col h-screen" style={{ width: collapsed ? '5rem' : '18rem' }}>
           {sidebarContent}
         </div>
       </aside>

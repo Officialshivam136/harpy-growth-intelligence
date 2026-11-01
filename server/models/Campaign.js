@@ -86,3 +86,4 @@ campaignSchema.index({ agencyId: 1, brandId: 1, status: 1 });
 
 export const Campaign = mongoose.models.Campaign || mongoose.model('Campaign', campaignSchema);
 export default Campaign;
+

@@ -82,3 +82,4 @@ alertSchema.index({ agencyId: 1, alertKey: 1 }, { unique: true });
 
 export const Alert = mongoose.models.Alert || mongoose.model('Alert', alertSchema);
 export default Alert;
+

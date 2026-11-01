@@ -492,8 +492,8 @@ export function AdvertisingPpc() {
         </div>
 
         {/* Performance Quick Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pt-2 border-t border-harpy-cardBorder/50 scrollbar-none">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-harpy-subtle shrink-0">
+        <div className="flex items-center gap-2 overflow-x-auto pt-2.5 border-t border-harpy-cardBorder/50 scrollbar-none">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-harpy-subtle shrink-0 mr-1">
             Quick Analysis:
           </span>
           {PERFORMANCE_FILTERS.map((f) => {
@@ -503,15 +503,29 @@ export function AdvertisingPpc() {
                 key={f.id}
                 onClick={() => setFilterPerformance(f.id)}
                 className={cn(
-                  'flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all shrink-0 cursor-pointer border',
+                  'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all shrink-0 cursor-pointer border',
                   isActive
-                    ? 'bg-emerald text-slate-950 border-emerald font-bold shadow-emerald-glow'
-                    : 'bg-harpy-navy/80 text-slate-300 border-harpy-cardBorder hover:bg-slate-800'
+                    ? 'bg-emerald-500/15 text-emerald border-emerald-500/50 shadow-sm shadow-emerald-500/10 font-bold ring-1 ring-emerald-500/30'
+                    : 'bg-harpy-navy/70 text-slate-400 border-harpy-cardBorder/70 hover:text-slate-200 hover:bg-slate-800/60'
                 )}
               >
+                {isActive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald shadow-emerald-glow shrink-0 animate-pulse" />
+                )}
                 <span>{f.label}</span>
-                {f.badge && !isActive && (
-                  <span className="text-[9px] px-1 py-0.2 rounded bg-slate-800 text-harpy-subtle border border-slate-700">
+                {f.badge && (
+                  <span
+                    className={cn(
+                      'text-[9px] px-1.5 py-0.2 rounded font-semibold',
+                      isActive
+                        ? 'bg-emerald-500/25 text-emerald border border-emerald-500/40'
+                        : f.badge === 'Bleed'
+                        ? 'bg-rose-500/10 text-rose-400 border border-rose-500/25'
+                        : f.badge === 'Alert'
+                        ? 'bg-amber-500/10 text-amber-400 border border-amber-500/25'
+                        : 'bg-slate-800 text-slate-400 border border-slate-700'
+                    )}
+                  >
                     {f.badge}
                   </span>
                 )}
@@ -545,23 +559,25 @@ export function AdvertisingPpc() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-harpy-cardBorder bg-harpy-charcoal/70 text-harpy-subtle uppercase text-[10px] tracking-wider font-semibold">
-                  <th className="py-3 px-3 w-10 text-center">
+                <tr className="border-b border-harpy-cardBorder bg-slate-900/90 text-harpy-subtle uppercase text-[10px] tracking-wider font-semibold">
+                  <th className="py-3 px-3 w-10 text-center sticky left-0 z-30 bg-slate-900 border-r border-harpy-cardBorder/40">
                     <span className="sr-only">Select</span>
                   </th>
-                  <th className="py-3 px-3 min-w-[220px]">Campaign Name</th>
-                  <th className="py-3 px-3">Brand</th>
-                  <th className="py-3 px-3">Type</th>
-                  <th className="py-3 px-3">Impressions</th>
-                  <th className="py-3 px-3">Clicks</th>
-                  <th className="py-3 px-3">Spend</th>
-                  <th className="py-3 px-3">Ad Sales</th>
-                  <th className="py-3 px-3">Orders</th>
-                  <th className="py-3 px-3">CPC</th>
-                  <th className="py-3 px-3">CTR</th>
-                  <th className="py-3 px-3">ACoS</th>
-                  <th className="py-3 px-3">ROAS</th>
-                  <th className="py-3 px-3">Status</th>
+                  <th className="py-3 px-3 min-w-[240px] sticky left-10 z-30 bg-slate-900 shadow-[4px_0_12px_rgba(0,0,0,0.5)] border-r border-harpy-cardBorder/80">
+                    Campaign Name & Targeting
+                  </th>
+                  <th className="py-3 px-3 text-center min-w-[85px]">Brand</th>
+                  <th className="py-3 px-3 min-w-[120px]">Type</th>
+                  <th className="py-3 px-3 min-w-[100px] text-right">Impressions</th>
+                  <th className="py-3 px-3 min-w-[85px] text-right">Clicks</th>
+                  <th className="py-3 px-3 min-w-[100px] text-right">Spend</th>
+                  <th className="py-3 px-3 min-w-[110px] text-right font-bold text-white">Ad Sales</th>
+                  <th className="py-3 px-3 min-w-[85px] text-right">Orders</th>
+                  <th className="py-3 px-3 min-w-[85px] text-right">CPC</th>
+                  <th className="py-3 px-3 min-w-[85px] text-right">CTR</th>
+                  <th className="py-3 px-3 min-w-[95px] text-center">ACoS</th>
+                  <th className="py-3 px-3 min-w-[95px] text-right">ROAS</th>
+                  <th className="py-3 px-3 min-w-[95px] text-center">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-harpy-cardBorder/40">
@@ -601,9 +617,9 @@ export function AdvertisingPpc() {
                           isSelected && 'bg-emerald-950/20'
                         )}
                       >
-                        {/* Checkbox for Compare */}
+                        {/* Checkbox for Compare (Sticky) */}
                         <td
-                          className="py-3.5 px-3 text-center"
+                          className="py-3.5 px-3 text-center sticky left-0 z-10 bg-harpy-charcoal group-hover:bg-slate-850 border-r border-harpy-cardBorder/40 transition-colors"
                           onClick={(e) => toggleCampaignSelection(c.id, e)}
                         >
                           <button
@@ -619,8 +635,8 @@ export function AdvertisingPpc() {
                           </button>
                         </td>
 
-                        {/* 1. Campaign Name */}
-                        <td className="py-3.5 px-3">
+                        {/* 1. Campaign Name (Sticky) */}
+                        <td className="py-3.5 px-3 sticky left-10 z-10 bg-harpy-charcoal group-hover:bg-slate-850 shadow-[4px_0_12px_rgba(0,0,0,0.5)] border-r border-harpy-cardBorder/80 transition-colors">
                           <div className="space-y-0.5 max-w-xs">
                             <span className="font-bold text-white group-hover:text-emerald transition-colors line-clamp-1 block">
                               {c.name}
@@ -632,7 +648,7 @@ export function AdvertisingPpc() {
                         </td>
 
                         {/* 2. Brand */}
-                        <td className="py-3.5 px-3">
+                        <td className="py-3.5 px-3 text-center">
                           <Badge variant="slate" size="xs">
                             {c.brandCode || c.brandName}
                           </Badge>
@@ -646,42 +662,42 @@ export function AdvertisingPpc() {
                         </td>
 
                         {/* 4. Impressions */}
-                        <td className="py-3.5 px-3 font-mono text-slate-300">
+                        <td className="py-3.5 px-3 font-mono text-slate-300 text-right tabular-nums">
                           {formatNumber(c.impressions)}
                         </td>
 
                         {/* 5. Clicks */}
-                        <td className="py-3.5 px-3 font-mono text-slate-300">
+                        <td className="py-3.5 px-3 font-mono text-slate-300 text-right tabular-nums">
                           {formatNumber(c.clicks)}
                         </td>
 
                         {/* 6. Spend */}
-                        <td className="py-3.5 px-3 font-bold text-white">
+                        <td className="py-3.5 px-3 font-bold text-white text-right tabular-nums">
                           {formatBrandCurrency(c.spend, cur)}
                         </td>
 
                         {/* 7. Advertising Sales */}
-                        <td className="py-3.5 px-3 font-bold text-emerald">
+                        <td className="py-3.5 px-3 font-bold text-emerald text-right tabular-nums">
                           {formatBrandCurrency(c.adSales, cur)}
                         </td>
 
                         {/* 8. Orders */}
-                        <td className="py-3.5 px-3 font-semibold text-slate-200">
+                        <td className="py-3.5 px-3 font-semibold text-slate-200 text-right tabular-nums">
                           {formatNumber(c.orders)}
                         </td>
 
                         {/* 9. CPC */}
-                        <td className="py-3.5 px-3 font-mono text-slate-300">
+                        <td className="py-3.5 px-3 font-mono text-slate-300 text-right tabular-nums">
                           {cur === 'INR' ? `₹${c.cpc}` : `$${c.cpc}`}
                         </td>
 
                         {/* 10. CTR */}
-                        <td className="py-3.5 px-3 font-semibold text-slate-200">
+                        <td className="py-3.5 px-3 font-semibold text-slate-200 text-right tabular-nums">
                           {c.ctr}%
                         </td>
 
                         {/* 11. ACOS */}
-                        <td className="py-3.5 px-3">
+                        <td className="py-3.5 px-3 text-center">
                           <Badge
                             variant={
                               c.acos <= 22
@@ -699,7 +715,7 @@ export function AdvertisingPpc() {
                         </td>
 
                         {/* 12. ROAS */}
-                        <td className="py-3.5 px-3 font-bold text-white">
+                        <td className="py-3.5 px-3 font-bold text-right tabular-nums">
                           <span
                             className={cn(
                               c.roas >= 4.5
@@ -714,7 +730,7 @@ export function AdvertisingPpc() {
                         </td>
 
                         {/* 13. Status */}
-                        <td className="py-3.5 px-3">
+                        <td className="py-3.5 px-3 text-center">
                           <Badge
                             variant={
                               c.status === 'Active'

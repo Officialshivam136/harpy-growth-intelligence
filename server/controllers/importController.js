@@ -350,3 +350,4 @@ export const getSampleTemplate = (req, res) => {
   res.setHeader('Content-Disposition', `attachment; filename=sample_${type}_template.csv`);
   res.send(csvText);
 };
+

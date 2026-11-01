@@ -96,3 +96,4 @@ productSchema.index({ agencyId: 1, brandId: 1, sku: 1 });
 
 export const Product = mongoose.models.Product || mongoose.model('Product', productSchema);
 export default Product;
+

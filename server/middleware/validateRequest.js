@@ -31,3 +31,4 @@ export const validateBody = (requiredFields = []) => {
 export default {
   validateBody,
 };
+

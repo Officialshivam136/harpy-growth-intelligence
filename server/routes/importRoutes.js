@@ -14,3 +14,4 @@ router.get('/history', getImportHistory);
 router.get('/template/:type', getSampleTemplate);
 
 export default router;
+
