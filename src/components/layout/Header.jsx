@@ -65,7 +65,7 @@ export function Header({ setMobileOpen }) {
   const activeDateConfig = dateRanges.find((d) => d.id === selectedDateRange) || dateRanges[1];
 
   return (
-    <header className="sticky top-0 z-20 h-16 bg-harpy-charcoal/95 backdrop-blur-md border-b border-harpy-cardBorder px-4 sm:px-6 flex items-center justify-between gap-3">
+    <header className="sticky top-0 z-20 h-16 bg-harpy-charcoal/95 backdrop-blur-md border-b border-harpy-cardBorder px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
       {/* 1. Left Section: Hamburger + Welcome Message */}
       <div className="flex items-center gap-3 min-w-0">
         <button
