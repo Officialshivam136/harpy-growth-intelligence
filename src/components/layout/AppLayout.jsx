@@ -26,12 +26,7 @@ export function AppLayout() {
         />
 
         {/* Main Content Area */}
-        <div
-          className={cn(
-            'flex flex-col flex-1 min-w-0 transition-all duration-300',
-            collapsed ? 'lg:pl-20' : 'lg:pl-72'
-          )}
-        >
+        <div className="flex flex-col flex-1 min-w-0 transition-all duration-300">
           {/* Top Sticky Header */}
           <Header setMobileOpen={setMobileOpen} />
 
